@@ -5,18 +5,18 @@
 #define DIGITS 1000
 
 /*
-* Iterate through each digit of the numbers.
-* Add the corresponding digits of num1 and num2, along with the carry.
-* Update result with the least significant digit of the sum (temp % 10) and update carry with the carry-over value (temp / 10).
+* iterate through number's digits
+* add digits of num1 and num2 along with the carry
+* add last digit of sum to result, temp/10 is new carry
 */
 void add(uint8_t *result, uint8_t *num1, uint8_t *num2)
 {
     uint16_t temp, carry = 0;
-    for (int i = 0; i < DIGITS; i++)        // Iterate through each digit of the numbers.
+    for (int i = 0; i < DIGITS; i++)        // iterate through number's digits
     {
-        temp = num1[i] + num2[i] + carry;   // Add the corresponding digits of num1 and num2, along with the carry.
+        temp = num1[i] + num2[i] + carry;   // add digits of num1 and num2 along with the carry
         carry = temp / 10;                   
-        result[i] = temp % 10;              // Update result with the least significant digit of the sum (temp % 10) and update carry with the carry-over value (temp / 10).
+        result[i] = temp % 10;              // add last digit of sum to result, temp/10 is new carry
     }
 }
 
@@ -34,11 +34,11 @@ void fibonacci(int n)
     n2[0] = n1[0] = 1;
     int fib_count = 2;
 
-    while (fib_count < n)   // Iterate to calculate the Fibonacci numbers iteratively up to the nth number:
+    while (fib_count < n)   // calculate fibonacci to nth number
     {
-        add(fib, n1, n2);   // Calculate the next Fibonacci number by adding n1 and n2 and store it in fib.
-        copy(n2, n1);       // Update n2 with the value of n1.
-        copy(n1, fib);      // Update n1 with the value of the calculated Fibonacci number (fib).
+        add(fib, n1, n2);   // calc next fibonacci n1 + n2 --> fib
+        copy(n2, n1);       // n2 gets n1, n2 = n1
+        copy(n1, fib);      // n1 gets fib, n1 = fib
         fib_count++;
     }
 
