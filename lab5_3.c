@@ -60,7 +60,7 @@ int main()
     system("cls");
     while (1)
     {
-        printf("Fibonacci number (<1 to stop) ");
+        printf("Fibonacci number (<1 to stop) "); // up to 1000, after this it bugs and doesn't show properly for some reason
         scanf("%d", &n);
         if (n <= 0)
             break;
